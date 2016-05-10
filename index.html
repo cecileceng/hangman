@@ -2,7 +2,60 @@
 <html>
 <head>
 	<title>Hang-Pokemon</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body background="images/pokemon-bg.jpg">
+<body>
+<script>
+var wordBank = ["psyduck", "pikachu", "bulbasaur", "squirtle", "charmander", "goldeen", "chansey", "koffing"];
+var wins = 0;
+var losses = 0;
+var guessedLetters = [];
+var guessesLeft = [];
+
+	document.onkeyup = function(event){
+		var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+		if (letter == [wordBank]){
+//			car.honk();
+			reWriteStats();
+		}
+
+				// Taking the tallies and displaying them in HTML
+		var html = 
+		"<p>Letters you have guessed: " +
+		guessedLetters +
+		"</p>" 
+		"<p>Guesses you have left: " + 
+		guessesLeft + 
+		"</p>"+
+		"<p>Pokemon you have captured: " + 
+		wins + 
+		"</p>" +
+		"<p>Pokemon you have let escape: " + 
+		losses + 
+		"</p>" +
+		;
+
+		// Placing the html into the game ID
+		document.querySelector('#scoreboard').innerHTML = html;
+
+</script>
+	<div class="container">
+		<header>
+			<img src="images/pokemon-logo.png" alt="Pokemon logo" id="logo">
+			<p><h2>Help Professor Oak restore his Pok&eacute;dex with a game of Hangman.</h2></p>
+		</header>
+		<main>
+			<div class="word">underscore
+			</div>
+			<div class="scoreboard">
+				<p>Letters you have guessed: </p>
+				<p>Guesses you have left: 7</p>
+				<p>Pokemon you have captured: 0</p>
+				<p>Pokemon you have let escape: 0</p>
+			</div>
+		</main>
+	</div>
 </body>
 </html>

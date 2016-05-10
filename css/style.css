@@ -1,0 +1,22 @@
+body {
+	background: url('../images/pokemon-bg.jpg');
+	font-family: 'Comic Sans','Arial', Helvetica, sans-serif;
+}
+
+header {
+	align-content: center;
+}
+
+.container {
+	width: 100%;
+	max-width: 850px;
+	background-color: white;
+	margin: 0 auto;
+	clear: both;
+	padding: 20px;
+	border-style: dashed;
+}
+
+#logo {
+	align-content: center;
+}
