@@ -7,21 +7,60 @@
 </head>
 <body>
 <script>
-var wordBank = ["psyduck", "pikachu", "bulbasaur", "squirtle", "charmander", "goldeen", "chansey", "koffing"];
-var wins = 0;
-var losses = 0;
-var guessedLetters = [];
-var guessesLeft = [];
 
-	document.onkeyup = function(event){
-		var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+/*
+var gottaCatchEmAll = {
+    word1: psyduck,
+    word2: pikachu,
+    word2: bulbasaur,
+    word2: squirtle,
+    word2: charmander,
+    word2: chansey,
+    word2: koffing,
+    word2: jigglypuff,
+};
+*/
 
-		if (letter == [wordBank]){
-//			car.honk();
-			reWriteStats();
+	var gottaCatchEmAll = ["psyduck", "pikachu", "bulbasaur", "squirtle", "charmander", "goldeen", "chansey", "koffing", "jigglypuff"];
+	var randomizeWord = gottaCatchEmAll[Math.floor(Math.random() * gottaCatchEmAll.length)];
+	var wordToGuess = [];
+		for (var i = 0; i < gottaCatchEmAll.length; i++) {
+		wordToGuess[i] = "_";
 		}
+	var lettersLeft = gottaCatchEmAll.length;
+	var wins = 0;
+	var losses = 0;
+	var guessedLetters = [];
+	var guessesLeft = [];
 
-				// Taking the tallies and displaying them in HTML
+ 	while (lettersLeft > 0) {
+		document.onkeyup = function(event){
+				var letter = String.fromCharCode(event.keyCode).toLowerCase();
+
+				for (var i = 0; i < gottaCatchEmAll.length; i++) {
+		        if (gottaCatchEmAll[i] === wordToGuess) {
+		          wordToGuess[i].innerHTML = guessesLeft;
+		          counter += 1;
+		        } 
+					function reWriteStats();
+			}
+
+	if (wordToGuess === null) {
+	break;
+	} else if (wordToGuess.length !== 1) {
+	  something w/guessedLetters
+	} else {
+	for (var j = 0; j < gottaCatchEmAll.length; j++) {
+	if (wordToGuess[j] === guess) {
+	wordToGuess[j] = guess;
+	lettersLeft--;
+			}
+		}
+		}
+	}
+
+// document.wordToGuess.join(" ")
+
 		var html = 
 		"<p>Letters you have guessed: " +
 		guessedLetters +
@@ -37,8 +76,7 @@ var guessesLeft = [];
 		"</p>" +
 		;
 
-		// Placing the html into the game ID
-		document.querySelector('#scoreboard').innerHTML = html;
+		document.querySelector("#scoreboard").innerHTML = html;
 
 </script>
 	<div class="container">
@@ -51,7 +89,7 @@ var guessesLeft = [];
 			</div>
 			<div class="scoreboard">
 				<p>Letters you have guessed: </p>
-				<p>Guesses you have left: 7</p>
+				<p>Guesses you have left: </p>
 				<p>Pokemon you have captured: 0</p>
 				<p>Pokemon you have let escape: 0</p>
 			</div>
