@@ -34,6 +34,28 @@ function checkLetter(letter) {
 				}
 }
 
+function reset() {
+			var html = 
+		"<p>Press a letter key to start guessing." + 
+		"<br>" +
+		wordToGuess + "</p>"
+		"<p>Letters you have guessed: " +
+		guessedLetters +
+		"</p>" 
+		"<p>Guesses you have left: " + 
+		guessesLeft + 
+		"</p>"+
+		"<p>Pokemon you have captured: " + 
+		wins + 
+		"</p>" +
+		"<p>Pokemon you have let escape: " + 
+		losses + 
+		"</p>" 
+		;
+
+		document.querySelector("#scoreboard").innerHTML = html;
+}
+
 //Program
 loadGame();
 
