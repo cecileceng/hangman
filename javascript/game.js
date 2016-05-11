@@ -20,7 +20,7 @@ function loadGame() {
 
 function checkLetter(letter) {
 		var inWord = false;
-		for (var j = 0; j < randomizeWord.length; j++) {
+		for (var i = 0; i < randomizeWord.length; i++) {
 			if (letter == randomizeWordArray[i]) {
 					inWord == true;
 			}
