@@ -1,4 +1,111 @@
 //Variables
+	var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+	var guessedLetters = [];
+	var wins = 0;
+	var losses = 0;
+	var guessesLeft = 7;
+
+//Functions
+function loadGame() {
+	randomizeWord = gottaCatchEmAll[Math.floor(Math.random() * gottaCatchEmAll.length)];
+	randomizeWordArray = randomizeWord.split("");
+	for (var i = 0; i < randomizeWord.length; i++) {
+		blanksAndLetters.push("_");
+	}
+	document.getElementById('wordToGuess').innerHTML = blanksAndLetters.join(" ");
+}
+
+var letters=Math.floor((Math.random()*26)+1);
+
+function myFunction(guess)
+{
+document.getElementById(guessedLetters).innerHTML =
+		"<p>Letters you have guessed: " +
+		guessedLetters +
+		"</p>" 
+if (guessThis.value==letters);
+{
+wins++;
+document.getElementById("#scoreboard").innerHTML= html;
+		
+		var html = 
+		"<p>" + 
+		wordToGuess + "</p>"
+		"<p>Letters you have guessed: " +
+		guessedLetters +
+		"</p>" 
+		"<p>Guesses you have left: " + 
+		guessesLeft + 
+		"</p>"+
+		"<p>Pokemon you have captured: " + 
+		wins + 
+		"</p>" +
+		"<p>Pokemon you have let escape: " + 
+		losses + 
+		"</p>" 
+		;
+
+		document.querySelector("#scoreboard").innerHTML = html;
+}
+else if (guessThis.value<letters)
+	losses++;
+{
+document.getElementById(“#scoreboard”).innerHTML= html;
+		
+		var html = 
+		"<p>" + 
+		wordToGuess + "</p>"
+		"<p>Letters you have guessed: " +
+		guessedLetters +
+		"</p>" 
+		"<p>Guesses you have left: " + 
+		guessesLeft + 
+		"</p>"+
+		"<p>Pokemon you have captured: " + 
+		wins + 
+		"</p>" +
+		"<p>Pokemon you have let escape: " + 
+		losses + 
+		"</p>" 
+		;
+
+		document.querySelector("#scoreboard").innerHTML = html;
+}
+else
+{
+document.getElementById(“#scoreboard”).innerHTML= html;
+		
+		var html = 
+		"<p>" + 
+		wordToGuess + "</p>"
+		"<p>Letters you have guessed: " +
+		guessedLetters +
+		"</p>" 
+		"<p>Guesses you have left: " + 
+		guessesLeft + 
+		"</p>"+
+		"<p>Pokemon you have captured: " + 
+		wins + 
+		"</p>" +
+		"<p>Pokemon you have let escape: " + 
+		losses + 
+		"</p>" 
+		;
+
+		document.querySelector("#scoreboard").innerHTML = html;
+}
+}
+
+//Program
+loadGame();
+
+document.onkeyup = function(event) {
+	var guessedLetters = String.fromCharCode(event.keyCode).toLowerCase();
+}
+
+/*
+//==============================
+//Variables
 	var gottaCatchEmAll = ["psyduck", "pikachu", "bulbasaur", "squirtle", "charmander", "goldeen", "chansey", "koffing", "jigglypuff"];
 	var wordToGuess = "";
 	var randomizeWordArray = [];
@@ -18,7 +125,7 @@ function loadGame() {
 	document.getElementById('wordToGuess').innerHTML = blanksAndLetters.join(" ");
 }
 
-/*
+
 function reset() {
 	randomizeWord = gottaCatchEmAll[Math.floor(Math.random()*gottaCatchEmAll.length)];
 	randomizeWordArray = randomizeWord.split("");
@@ -28,7 +135,6 @@ function reset() {
 	guessesLeft = 7;
 	lettersTried = [];
 }
-*/
 
 //Program
 loadGame();
