@@ -5,98 +5,19 @@
 	var losses = 0;
 	var guessesLeft = 7;
 	var randomizeWord = gottaCatchEmAll[Math.floor(Math.random() * gottaCatchEmAll.length)];
+	var randomizeWordArray = [];
 	console.log(randomizeWord)
 
 	var wordToGuess = [];
 	for (var i = 0; i < randomizeWord.length; i++) {
 		wordToGuess[i] = "_";
+		document.querySelector('#wordToGuess').innerHTML = (wordToGuess);
+
+
 	}
 	console.log(wordToGuess)
 
-	var lettersRemaining = randomizeWord.length;
-	if (lettersRemaining > 0) {
-	document.write(wordToGuess.join(" "));
-	}
-	else {
-	for (var j = 0; j < randomizeWord.length; j++) {
-	if (randomizeWord[j] === guess) {
-	wordToGuess[j] = guess;
-	lettersRemaining--;
- }
-
- function loadGame() {
-	randomizeWordArray = randomizeWord.split("");
-	for (var i = 0; i < randomizeWord.length; i++) {
-		blanksAndLetters.push("_");
-	}
-	document.getElementById('wordToGuess').innerHTML = blanksAndLetters.join(" ");
-}
-
-function reset() {
-	randomizeWord = gottaCatchEmAll[Math.floor(Math.random()*gottaCatchEmAll.length)];
-	for(var i = 0; i < randomizeWord.length; i++) {
-		wordToGuess = wordToGuess + "_";
-	}
-	turns = 7;
-	guessedLetters = [];
-}
-
-function checkLetter(letter)
-{
-	var isInWord = false;
-	console.log("Letter: " + letter);
-	for(var i = 0; i < wordToGuess.length; i++)
-	{
-		if( letter == wordToGuess[i] ) {
-			isInWord = true;
-		}
-	}
-	if( isInWord ) 
-	{
-	guessedLetters = randomizeWord.split("");
-	for (var i = 0; i < randomizeWord.length; i++) {
-	blanksAndLetters.push("_");
-	}
-	document.getElementById('wordToGuess').innerHTML = blanksAndLetters.join(" ");
-
-	if(!IsInWord && !inArray(letter, guessedLetters)) {
-		guessedLetters.push(letter);
-		}
-			if(wordToGuess.indexOf("_") === -1) {
-		reset();
-		wins++;
-	}
-
-		if(guessesLeft == 0) {
-		reset();
-		losses++;
-	}
-	}
-
-}
-		var html = 
-		"<p>" + 
-		wordToGuess + "</p>"
-		"<p>Letters you have guessed: " +
-		guessedLetters +
-		"</p>" 
-		"<p>Guesses you have left: " + 
-		guessesLeft + 
-		"</p>"+
-		"<p>Pokemon you have captured: " + 
-		wins + 
-		"</p>" +
-		"<p>Pokemon you have let escape: " + 
-		losses + 
-		"</p>" 
-		;
-
-		document.querySelector("#scoreboard").innerHTML = html;
-
-}
-
-//Program
-loadGame();
+	function loadGame() {
 	document.onkeyup = function(event)
 	{
 	var guessedLetters = String.fromCharCode(event.keyCode).toLowerCase();
@@ -133,6 +54,93 @@ loadGame();
 
 		document.querySelector("#scoreboard").innerHTML = html;
 }
+	randomizeWordArray = randomizeWord.split("");
+	for (var i = 0; i < randomizeWord.length; i++) {
+		blanksAndLetters.push("_");
+	}
+	document.getElementById('wordToGuess').innerHTML = blanksAndLetters.join(" ");
+}
+
+	var lettersRemaining = randomizeWord.length;
+	if (lettersRemaining > 0) {
+	document.write(wordToGuess.join(" "));
+	}
+	else {
+	for (var j = 0; j < randomizeWord.length; j++) {
+	if (randomizeWord[j] === guess) {
+	wordToGuess[j] = guess;
+	lettersRemaining--;
+ }
+/*
+ function reWriteStats() {
+	randomizeWord = gottaCatchEmAll[Math.floor(Math.random()*gottaCatchEmAll.length)];
+	for(var i = 0; i < randomizeWord.length; i++) {
+		wordToGuess = wordToGuess + "_";
+	}
+	guessesLeft = 7;
+	guessedLetters = [];
+}
+*/
+function checkLetter(letter)
+{
+	var isInWord = false;
+	console.log("Letter: " + letter);
+	for(var i = 0; i < wordToGuess.length; i++)
+	{
+		if( letter == wordToGuess[i] ) {
+			isInWord = true;
+		}
+	}
+	if( isInWord ) 
+	{
+	guessedLetters = randomizeWord.split("");
+	for (var i = 0; i < randomizeWord.length; i++) {
+	blanksAndLetters.push("_");
+	}
+	document.getElementById('wordToGuess').innerHTML = blanksAndLetters.join(" ");
+
+	if(!IsInWord && !inArray(letter, guessedLetters)) {
+		guessedLetters.push(letter);
+		}
+			if(wordToGuess.indexOf("_") === -1) {
+		reWriteStats();
+		wins++;
+	}
+
+		if(guessesLeft == 0) {
+		reWriteStats();
+		losses++;
+	}
+	}
+
+}
+		var html = 
+		"<p>" + 
+		wordToGuess + "</p>"
+		"<p>Letters you have guessed: " +
+		guessedLetters +
+		"</p>" 
+		"<p>Guesses you have left: " + 
+		guessesLeft + 
+		"</p>"+
+		"<p>Pokemon you have captured: " + 
+		wins + 
+		"</p>" +
+		"<p>Pokemon you have let escape: " + 
+		losses + 
+		"</p>" 
+		;
+
+		document.querySelector("#scoreboard").innerHTML = html;
+
+}
+
+//Program
+loadGame();
+	var guessedLetters = String.fromCharCode(event.keyCode).toLowerCase();
+//	checkLetter(guessedLetters);
+
+
 /*
 
 
