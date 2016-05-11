@@ -6,31 +6,20 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous">
+</script>
 <script>
-
-/*
-var gottaCatchEmAll = {
-    word1: psyduck,
-    word2: pikachu,
-    word2: bulbasaur,
-    word2: squirtle,
-    word2: charmander,
-    word2: chansey,
-    word2: koffing,
-    word2: jigglypuff,
-};
-*/
 
 	var gottaCatchEmAll = ["psyduck", "pikachu", "bulbasaur", "squirtle", "charmander", "goldeen", "chansey", "koffing", "jigglypuff"];
 	var randomizeWord = gottaCatchEmAll[Math.floor(Math.random() * gottaCatchEmAll.length)];
 	var wordToGuess = [];
-		for (var i = 0; i < gottaCatchEmAll.length; i++) {
+		for (var i = 0; i < randomizeWord.length; i++) {
 		wordToGuess[i] = "_";
 		}
 	var lettersLeft = gottaCatchEmAll.length;
 	var wins = 0;
 	var losses = 0;
-	var guessedLetters = [];
+	var guessedLetters = "";
 	var guessesLeft = [];
 
  	while (lettersLeft > 0) {
@@ -59,9 +48,13 @@ var gottaCatchEmAll = {
 		}
 	}
 
+//$("imageDiv").html(img src='x' />");
+
 // document.wordToGuess.join(" ")
 
 		var html = 
+		"<p>Press a letter key to start guessing." + 
+		wordToGuess + "</p>"
 		"<p>Letters you have guessed: " +
 		guessedLetters +
 		"</p>" 
@@ -85,13 +78,13 @@ var gottaCatchEmAll = {
 			<p><h2>Help Professor Oak restore his Pok&eacute;dex with a game of Hangman.</h2></p>
 		</header>
 		<main>
-			<div class="word">underscore
-			</div>
-			<div class="scoreboard">
+			<div id="scoreboard">
+<!--
 				<p>Letters you have guessed: </p>
 				<p>Guesses you have left: </p>
 				<p>Pokemon you have captured: 0</p>
 				<p>Pokemon you have let escape: 0</p>
+-->
 			</div>
 		</main>
 	</div>
