@@ -18,22 +18,6 @@ function loadGame() {
 	document.getElementById('wordToGuess').innerHTML = blanksAndLetters.join(" ");
 }
 
-function checkLetter(letter) {
-		var inWord = false;
-		for (var i = 0; i < randomizeWord.length; i++) {
-			if (letter == randomizeWordArray[i]) {
-					inWord == true;
-			}
-		}
-				if(inWord) {
-					document.getElementById('wordToGuess').innerHTML = randomizeWordArray.join(" ");
-				}
-				else {
-					document.getElementById('guessedLetters').innerHTML = guessedLetters.join();
-					guessesLeft--;
-				}
-}
-
 function reset() {
 			var html = 
 		"<p>Press a letter key to start guessing." + 
@@ -61,7 +45,25 @@ loadGame();
 
 document.onkeyup = function(event) {
 	var guessedLetters = String.fromCharCode(event.keyCode).toLowerCase();
+
+	function checkLetter(letter) {
+		var inWord = false;
+		for (var i = 0; i < randomizeWord.length; i++) {
+			if (letter == randomizeWordArray[i]) {
+					inWord == true;
+			}
+		}
+				if(inWord) {
+					document.getElementById('wordToGuess').innerHTML = randomizeWordArray.join(" ");
+				}
+				else {
+					document.getElementById('guessedLetters').innerHTML = guessedLetters.join();
+					guessesLeft--;
+				}
+}
+
 	checkLetter(guessedLetters);
+
 	var inTheWord = false;
 
 	for(var i = 0; i < randomizeWord.length; i++) {
