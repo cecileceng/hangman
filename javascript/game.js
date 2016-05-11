@@ -37,12 +37,12 @@ function reset() {
 
 document.onkeyup = function(event) {
 	var letter = String.fromCharCode(event.keyCode).toLowerCase();
-	var inWord = false;
+	var inTheWord = false;
 
 	for(var i = 0; i < randomizeWord.length; i++) {
 		if(letter == randomizeWord[i]) {
 			wordToGuess = changeLetter(wordToGuess, i, letter);
-			inWord = true;
+			inTheWord = true;
 		}
 	}
 	if(!inWord && !inArray(letter, guessedLetters)) {
