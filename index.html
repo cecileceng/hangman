@@ -8,7 +8,6 @@
 <body>
 <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous">
 </script>
-<script type="text/javascript" src="javascript/game.js"></script>
 	<div class="container">
 		<header>
 			<img src="images/pokemon-logo.png" alt="Pokemon logo" id="logo">
@@ -16,15 +15,19 @@
 		</header>
 		<main>
 			<div id="game"></div>
-			<div id="scoreboard">
 				<p>Press a letter key to start guessing.</p>
-				<p>Letters you have guessed: </p>
-				<p>Guesses you have left: </p>
-				<p>Pokemon you have captured: 0</p>
-				<p>Pokemon you have let escape: 0</p>
+				<p><span id="wordToGuess"></span></p>
+
+			<div id="scoreboard">
+				<p>Letters you have guessed: <span id="guessedLetters"></span></p>
+				<p>Guesses you have left: <span id="guessesLeft"></span></p>
+				<p>Pokemon you have captured: <span id="wins"></span></p>
+				<p>Pokemon you have let escape: <span id="losses"></span></p>
 			</div>
+			<div id="image"></div>
 		</main>
 	</div>
+	<script type="text/javascript" src="javascript/game.js"></script>
 </body>
 </html>
 
