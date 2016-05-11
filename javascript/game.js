@@ -52,6 +52,11 @@ document.onkeyup = function(event) {
 		guessedLetters.push(letter);
 	}
 
+		if(guessesLeft == 0) {
+		reset();
+		losses++;
+	}
+
 		var html = 
 		"<p>Press a letter key to start guessing." + 
 		"<br>" +
